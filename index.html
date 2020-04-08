@@ -3,7 +3,333 @@
 <head> <title>Shona Words | Dictionary and Word Games</title>
 </head>
 <body>
+<!--master shona word game engine-->
+<div id="display">
+	<h2 id="title">Word Game</h2>
+	<br><i>powered by Quiz Tool  (qt.co.zw)</i>
+<br>
+<br>See how many words you can form from the word ""<br>
+	Rules: Do not use a letter more than the number of times it appears in the given word. <br>
+		Good luck!
+		<p id="count">Click New Game then Start </p>
+		<br>
+<br>
+	<input id="try" type="text" placeholder="word" size="9" value="">
+		<span id ="fd"> </span><button id="btn1" onclick="check()"> Check </button>
+	
+<!-- for validation upon adding new master word
+	<p id="word"></p>-->
+	<!--<p id="anagram"></p> -->
+<br>
+	<br>
+		<br>
+<button onclick="engine(game)">START</button>
+<button onclick="newGame()">NEW GAME</button>
+<br>
+<br>
+<p>Expected Words </p>
 
-<p> Welcome to my webpage on git pages</p>
+<p id ="a1" > </p>
+<p id="a2"> </p>
+<p id ="a3" > </p>
+<p id="a4"> </p>
+<p id ="a5" > </p>
+<p id="a6"> </p>
+<p id ="a7" > </p>
+<p id="a8"> </p>
+<p id ="a9" > </p>
+<p id="a10"> </p>
+<p id ="a11" > </p>
+<p id="a12"> </p>
+<p id ="a13" > </p>
+<p id="a14"> </p>
+<p id ="a15" > </p>
+<p id="a16"> </p>
+<p id ="a17" > </p>
+<p id="a18"> </p>
+<p id ="a19" > </p>
+<p id="a20"> </p>
+<p id ="a21" > </p>
+<p id="a22"> </p>
+<p id ="a23" > </p>
+<p id="a24"> </p>
+<p id ="a25" > </p>
+<p id="a26"> </p>
+<p id ="a27" > </p>
+<p id="a28"> </p>
+<p id ="a29" > </p>
+<p id="a30"> </p>
+
+
+
+<script>
+var g=0;
+var game;
+
+var k= [['axe', 'a-e'], ['man', 'm-n']];
+var puzzle;
+
+var fudzamombe=[['Fudzamombe', 20],
+['Fudza','-UDZ-'],
+['Mombe','-OM--E'],
+['Zuda','Z-D-'],
+['Mafemo','MAF---'],
+['Fema','-EM-'],
+['Mbodza','MB--Z-'],
+['Mambo','MA--O'],
+['Buda','B--A'],
+['Mbezo','MB---'],
+['Mude','-UD-'],
+['Dzomba','DZ--B-'],
+['Fuza','F--A'],
+['Demo','D---'],
+['Mbeu','MB--'],
+['Zamu','ZA--'],
+['Medza','M--Z-'],
+['Doma','-OM-'],
+['Zemo','Z***'],
+['Udza','U--A'],
+['Dzemumba','DZEM-M--']];
+
+var mbambaira=[['Mbambaira', 14],
+['Mbira','M-IR-'],
+['Mbama','MBA--'],
+['Bira','B-R-'],
+['Rima','RI--'],
+['Mari','M-R-'],
+['Mimba','MI---'],
+['Imba','I---'],
+['Mira', 'MI--'],
+['Ramba','RA---'],
+['Baba', 'BA--'],
+['Bara','--RA'],
+['Mambara','MAMB---'],
+['Mara', '-AR-'],
+['Amai','A-M--']];
+
+var chinyakare=[['Chinyakare', 16],
+['Kare','-AR-'],
+['Kanya','KA--Y-'],
+['Nyika','NY--A'],
+['China','CH---'],
+['hachi','HA---I'],
+['hacha','HA---'],
+['yera','YE--'],
+['Nyara','NY---'],
+['hanya','--NY-'],
+['hana','H--A'],
+['Chera','CH---'],
+['Chikara','CHI---R-'],
+['Nhare','NH---'],
+['Nhini','N---I'],
+['Nhaka','N--K-'],
+['haka','-H--A']];
+
+
+
+var mbudzana=[['Mbudzana', 12],
+['Zana','Z--A'],
+['Badza','-ADZ-'],
+['Udza','U--A'],
+['Buda','B-D-'],
+['Dzana','DZ---'],
+['Zamu','ZA--'],
+['Mbada','MB---'],
+['Mana','MA--'],
+['Munda','-UN--'],
+['Zuda','-UD-'],
+['Manza','-ANZ-'],
+['Zama','Z--A']];
+
+
+var hombarume=[['Hombarume', 18],
+['Hombe', 'HO--E'],
+['Mhura' ,'M-UR-'],
+['Rombe', 'RO---'],
+['Mombe', 'MO--E'],
+['Huro', '-UR-'],
+['Huma' , 'H--A'],
+['Rume', 'R-M-'],
+['Ruma', 'RU--'],
+['Umba', 'U---'],
+['Mambo', '-AM--'],
+['Bhema', 'BH---'],
+['Mora', 'MO--'],
+['Mema', '-EM-'],
+['Bhora', 'BH---'],
+['Mboma', 'MB--A'],
+['Mbare', 'MB---'],
+['Mumba', 'M--B-'],
+['Muhomba', 'MUH--B-']];
+
+
+
+
+var handira= [['Handira', 12],
+['Hari', '-AR-'],
+['Ndira','ND--A'],
+['Handa','--ND-'],
+['Dira','DI--'],
+['Dara','D-R-'],
+['Hana','H--A'],
+['Haadi','-AAD-'],
+['Daira','D--R-'],
+['Nhari','NH--I'],
+['Danai','-AN-I'],
+['Dana','D-N-'],
+['Dhara','DH---']];
+
+function engine(k){
+	
+	temporal(k);
+	document.getElementById("title").innerHTML=k[0][0];
+	document.getElementById("count").innerHTML= "Target : "+k[0][1]+" words";
+/*
+for testing purposes
+    document.getElementById("word").innerHTML=k[1][0];
+	document.getElementById("anagram").innerHTML=k[1][1];
+
+*/
+		var q=0;
+        var m;
+        var o;
+        var h;
+        
+   for(q=1;q<12; q++){
+   	y=puzzle[q][1];
+
+       o= "a"+(q);
+    
+       h= '<button onclick="reveal(\''+o+'\', \' '+q+'.  '+puzzle[q][0]+ '\')">reveal</button>';         
+       
+    m=(( q)+'.'+ '  '+ y + h);
+   	reveal(o, m);
+   }
+	
+	
+	}
+
+var n ;
+	var i=0; 
+	var x;
+	var y=0;
+	var z;
+	
+	function temporal(k){
+		puzzle= k;
+		
+		}
+		
+		function newGame(){
+			 //reset to initial values
+			document.getElementById("title").innerHTML="Start New Game";
+	        document.getElementById("count").innerHTML= " ";
+            document.getElementById("btn1").innerHTML="Check";
+			n=0;
+			document.getElementById("try").value= "";
+			document.getElementById("fd").innerHTML= "";
+        
+        
+			
+			switch (g){
+			case 0:
+				
+                    game= fudzamombe;
+		g++;
+		break;
+		
+			
+			
+			case 1 : 
+				game=mbudzana;
+		
+				g++;
+				break;
+				
+				
+			case 2 :
+				game=chinyakare;
+				g++;
+				break;
+				
+	       case 3 :
+				game= handira;
+				g++;
+				break;
+				
+				
+			case 4 :
+				game= mbambaira;
+				g++;
+				break;
+				
+			case 5 :
+				game= hombarume;
+				g++;
+				break;
+				
+				
+				default :
+				g=1;
+				game = fudzamombe;
+				break;
+		
+			}
+	
+	}
+	
+	
+	function  check(){
+		if(!n){ 
+        //initialize n;
+			n=0;
+			}
+		if(n==1){
+			document.getElementById("btn1").innerHTML="Check";
+			n=0;
+			document.getElementById("try").value= "";
+			document.getElementById("fd").innerHTML= "";
+        }
+        else{
+		z= document.getElementById("try").value;
+		x= z.toUpperCase();
+		var j=0;
+		for(j=0; j <12; j++){
+			z=puzzle[j][0];
+            y= z.toUpperCase();
+           
+   if(x==y){
+   	var c=(( j)+'.'+ '  '+ y);
+   var d= "a"+(j);
+   	reveal(d, c);
+   
+			document.getElementById("fd").innerHTML= "correct";
+			document.getElementById("btn1").innerHTML="Next";
+			n=1;
+			
+			break;
+         }else{
+         	document.getElementById("fd").innerHTML= "wrong";
+			document.getElementById("btn1").innerHTML="Retry";
+			n=1;
+			
+         }
+         
+         }
+			}
+
+}
+
+
+var a;
+var b;
+function reveal(a, b){
+	document.getElementById(a).innerHTML= b;
+	}
+</script>
+
+
+
+
 </body>
 </HTML> 
