@@ -26,7 +26,35 @@ button{background: teal; color: white; padding: 2px;}
 	#display{width: 100%; padding: 10px; }
 
 
-
+#theTable{
+		border: solid grey;
+		width: 200px;
+		height: 200px;
+		padding: 1px;
+		font-size: 20px;
+		background:grey;
+		text-align: center;
+		margin: auto;
+		}
+		.center{
+			text-align: center;
+			
+			}
+		#theTable td{
+			border: solid white;
+			background: black;
+			color:white;
+			
+			}
+			#theTable thead{
+			text-align: center;
+			}
+			#anagram{
+		font-size: 20px;
+		color: black;
+		margin: auto;
+		
+		
   
 </style>
 <!--master shona word game engine-->
@@ -88,7 +116,30 @@ button{background: teal; color: white; padding: 2px;}
 <p id="a30"> </p></div>
 
 
+<br>
+<br>
+<div class="center">
+<table id="theTable">
+	
+	<thead>Word Game</thead>
+	<tr><td>F</td><td>U</td> <td>D</td>   </tr>
+	<tr><td>Z</td><td>A</td>  <td>M</td>     </tr>
+	<tr><td>O</td><td>B</td>    <td>E</td>  </tr>
+	
+</table>
 
+<br>
+	<br>
+		
+<table id="anagram"> 
+<thead> Word</thead>
+<tr ><td>F</td><td>_</td>
+	<td>D</td><td>Z</td><td>_</td><td></td>
+		<td></td><td></td><td></td>
+</tr>
+</table>
+
+</div>
 <script>
 var g=0;
 var game;
