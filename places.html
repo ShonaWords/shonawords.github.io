@@ -1,0 +1,176 @@
+<!DOCTYPE HTML5>
+<html>
+<header>
+<title>Shona Words| Names of Places</title>
+</header>
+<body>
+
+
+
+
+<p id="places" ></p>
+<br><br><select id="dep">
+<option value="">From</option>
+    <option value="Beitbridge">Beitbridge</option>
+    <option value="Bindura">Bindura</option>
+    <option value="Birchenough">Birchenough</option>
+  <option value="Bulawayo">Bulawayo</option>
+    <option value="Chimanimani">Chimanimani</option>
+    <option value="Chiredzi">Chiredzi</option>
+    <option value="Chinhoyi">Chinhoyi</option>
+  <option value="Gweru">Gweru</option>
+    <option value="Harare">Harare</option>
+    <option value="Kadoma">Kadoma</option>
+    <option value="Kariba">Kariba</option>
+  <option value="Karoi">Karoi</option>
+    <option value="Kwekwe">Kwekwe</option>
+    <option value="Marondera">Marondera</option>
+    <option value="Masvingo">Masvingo</option>
+  <option value="Mount Darwin">Mt Darwin</option>
+    <option value="Mutare">Mutare</option>
+    <option value="Mutoko">Mutoko</option>
+    <option value="Nyanga">Nyanga</option>
+  <option value="Plumtree">Plumtree</option>
+    <option value="Rusape">Rusape</option>
+    <option value="Victoria Falls">Victorial Falls</option>
+    <option value="Zvishave">Zvishavane</option>
+  </select>
+  
+  <select id="des">
+<option value="" >To</option>
+    <option value="Beitbridge">Beitbridge</option>
+    <option value="Bindura">Bindura</option>
+    <option value="Birchenough">Birchenough</option>
+  <option value="Bulawayo">Bulawayo</option>
+    <option value="Chimanimani">Chimanimani</option>
+    <option value="Chiredzi">Chiredzi</option>
+    <option value="Chinhoyi">Chinhoyi</option>
+  <option value="Gweru">Gweru</option>
+    <option value="Harare">Harare</option>
+    <option value="Kadoma">Kadoma</option>
+    <option value="Kariba">Kariba</option>
+  <option value="Karoi">Karoi</option>
+    <option value="Kwekwe">Kwekwe</option>
+    <option value="Marondera">Marondera</option>
+    <option value="Masvingo">Masvingo</option>
+  <option value="Mount Darwin">Mt Darwin</option>
+    <option value="Mutare">Mutare</option>
+    <option value="Mutoko">Mutoko</option>
+    <option value="Nyanga">Nyanga</option>
+  <option value="Plumtree">Plumtree</option>
+    <option value="Rusape">Rusape</option>
+    <option value="Victoria Falls">Victorial Falls</option>
+    <option value="Zvishavane">Zvishavane</option>
+  </select>
+  
+  
+<br><br><button onclick="distance()">Estimated Distance</button>
+<br><p id="display">Please note these distances are only a guide</p>
+
+<script>
+	
+data= [[0, 
+670,
+461,
+322,
+567,
+301,
+698 , 472, 582,
+606, 947, 786, 534, 656, 289, 739,
+586,
+752,
+693,
+424,
+681,
+759,
+386
+],
+
+[670, 0, 478, 527, 504, 583, 204, 363, 88, 229, 453, 292, 301, 162, 381, 69, 353, 231, 360, 629, 258, 964, 478],
+
+[461, 478, 0, 454, 106, 203, 506, 355, 390, 489,755,594,417,507,172,547,125,533,232,556,220,891,269],
+[322,527,454,0,506,484,555,164,439,298,804,643,226,513,282,596,597,582,686,102,609,437,185],
+[567,504,106, 506,0,255,532,461,416,557,781,620,523,342,513,278,573,151,559,258,662,246, 997],
+[301,583,203,484,255,0,611,385,495,519,860,699,447,523,203,513,652,325,638,432,586,420,291],
+[698,204,506,555,532,611,0,391,116,257,249,88,299,190,409,273,381,259,388,657,286,992,506],
+[472,363,355,164,461,385,391,0,275,134,640,479,62,349,183,432,480,418,547,266,445,601,121],
+[582,88,390,439,416,495,116,275,0,141,365,204,213,74,293,157,265,143,272,541,180,876,390],
+[606,229,489,298,557,519,257,134,141,0,506,345,72,215,317,298,406,284,413,400,311,735,255],
+[947,453,755,804,781,860,249,640,365,506,0,161,578,439,658,522,630,508,637,906,535,1241,755],
+[786,292,594,643,620,699,88,479,204,345,161,0,417,278,497,361,469,347,476,745,374,1080,594],
+[534,301,417,226,523,447,299,62,213,72,578,417,0,287,345,370,478,356,485,328,383,663,183],
+[656,162,507,513,342,523,190,349,74,215,439,278,287,0,488,231,191,217,198,615,96,950,464],
+[289,381,172,282,513,203,409,183,293,317,658,497,345,488,0,450,297,436,404,384,392,719,97],
+[739,69,547,596,278,513,273,432,157,298,522,361,370,231,450,0,422,300,429,698,327,1033,547],
+[586,353,125,597,573,652,381,480,265,406,630,469,478,191,297,422,0,408,107,681,95,1016,394],
+[752,231,533,582,151,325,259,418,143,284,508,347,356,217,436,300,408,0,415,684,313,1019,533],
+[693,360,232,686,559,638,388,547,272,413,637,476,485,198,404,429,107,415,0,813,102,1123,501],
+[424,629,556,102,258,432,657,266,541,400,906,745,328,615,384,698,681,684,813,0,711,539,286],
+[681,258,220,609,662,586,286,445,180,311,535,374,383,96,392,327,95,313,102,711,0,1046,489],
+[759,964,891,437,246,420,992,601,876,735,1241,1080,663,950,719,1033,1016,1019,1123,539,1046,0,622],
+[386,478,269,185,997,291,506,121,390,255,755,594,183,464,97,547,394,553,501,286,489,622,0]
+];
+places=[
+"Beitbridge",
+"Bindura",
+"Birchnough Bridge",
+"Bulawayo",
+"Chimanimani",
+"Chiredzi",
+"Chinhoyi",
+"Gweru",
+"Harare",
+"Kadoma",
+"Kariba",
+"Karoi",
+"Kwekwe",
+"Marondera",
+"Masvingo",
+"Mount Darwin",
+"Mutare",
+"Mutoko",
+"Nyanga",
+"Plumtree",
+"Rusape",
+"Victoria Falls",
+"Zvishavane"
+];
+
+provincesAndTowns= [
+["Bulawayo","Bulawayo"],
+["Harare","Harare"],
+["Manicaland","Mutare","Birchenough Bridge","Chimanimani", "Chiredzi","Nyanga", "Rusape"],
+["Mashonaland Central","Bindura", "Mt Darwin","Mutoko"],
+["Mashonaland East","Marondera"],
+["Mashonaland West","Chinhoyi","Karoi"],
+["Masvingo","Masvingo"],
+["Matabeleland North","Victoria Falls", "Kariba"],
+["Matabeleland South","Gwanda","Beitbridge","Plumtree"],
+["Midlands" ,"Gweru","Kadoma","Kwekwe","Zvishane"]
+];
+
+var a= "departure";
+var b=4;
+var c;
+var d;
+
+function distance( ){
+	a= document.getElementById("dep").value;
+	b= document.getElementById("des").value;
+	
+	c=places.indexOf(b) ;
+	d=places.indexOf(a);
+if(c== -1){
+		
+		document.getElementById("display").innerHTML=  b+" is not in database";
+		}else{
+			document.getElementById("display").innerHTML= "~"+ data[d][c]+ "km";
+			}
+	
+	}
+
+
+
+</script>
+</body>
+</html>
