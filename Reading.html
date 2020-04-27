@@ -1,0 +1,325 @@
+<!DOCTYPE HTML5>
+<html>
+<header>
+<title> Shona Words | Reading Practice</title>
+</header>
+<body>
+<style>
+	
+	h1{
+		color: blue;
+		}
+	.container{
+		text-align: center;
+		}
+		#green{
+			color: green;
+			}
+		
+	</style>
+
+<div class="container">
+<h1>Verenga</h1>
+	<h2 id="rava">a &nbsp; e &nbsp; i &nbsp; o &nbsp; u
+</h2>
+	<br>
+<br><select onchange="rava()"  id="block">
+<option value="a">Sarudza</option>
+    <option value="b" >Ba </option>
+        <option value="bh">Bha</option>
+    <option value="bv">Bva</option>
+<option value="ch">Cha</option>
+       <option value="d">Da</option>
+ <option value="dh">Dha</option>
+<option value="dy">Dya</option>
+  <option value="f">Fa</option>
+    <option value="g">Ga</option>
+    <option value="h">Ha</option>
+        <option value="hw">Hwa</option>
+    <option value="j">Ja</option>
+    <option value="k" >Ka</option>
+    <option value="m">Ma</option>
+        <option value="mb">Mba</option>
+        <option value="mh">Mha</option>
+    <option value="n">Na</option>
+   <option value="nd">Nda</option>
+     <option value="nh">Nha</option>
+    <option value="nj">Nja</option>
+     <option value="ny">Nya</option>
+   <option value="nz">Nza</option>
+                <option value="nzw">Nzwa</option>
+     <option value="nzv">Nzva</option>
+ <option value="p">Pa</option>
+  <option value="pf">Pfa</option>
+     <option value="r">Ra</option>
+<option value="s">Sa</option>
+        <option value="sh">Sha</option>
+    <option value="sv">Sva</option>
+ <option value="t">Ta</option>
+        <option value="ts">Tsa</option>
+<option value="tsv">Tsva</option>
+    <option value="v">Va</option>
+        <option value="vh">Vha</option>
+    <option value="w" >Wa</option>
+    <option value="z">Za</option>
+    <option value="zh">Zha</option>
+  </select>&nbsp;
+    
+    <button onclick="rava()">Izwi</button>&nbsp;
+    	    <button onclick="mutsara()">Mutsara</button>
+    <br>
+    	<br>
+    	<audio id="sound" src="sh0.mp3" controls>
+    	
+
+<h1>Zviperengo</h1>
+<input type="text" placeholder="izwi">
+<button>Teerera</button>
+</div> 
+<script>
+	
+	
+	blocks=[
+	"b",
+	"bh",
+	"bv",
+	"ch",
+	"d",
+	"dh",
+	"dy",
+	"f",
+	"g",
+	"h",
+	"hw",
+	"j",
+	"k",
+	"m",
+	"mb",
+	"mh",
+	"n",
+	"nd",
+	"nh",
+	"nj",
+	"ny",
+	"nz",
+	"nzv",
+	"nzw",
+	"p",
+	"pf",
+	"r",
+	"s",
+	"sh",
+	"sv",
+	"t",
+	"ts",
+	"tsv",
+	"v",
+	"vh",
+	"w",
+	"y",
+	"z",
+	"zh"
+
+	];
+	
+	
+	mazwi=[
+	"baba",
+	"bhabhu",
+	"i bva",
+	"i cho",
+	"dada",
+	"dhadha",
+	"i dya",
+	"fufu",
+	"gogo",
+	"hohoho",
+	"hwahwa",
+	"ju ju ju!",
+	"kako",
+	"mema",
+	"i mba",
+	"mhamha",
+	"nuna",
+	"e nda",
+	"nha u",
+	"njanji",
+	"nyenye",
+	"nzenza",
+	"nzve e",
+	"i nzwi",
+	"pepa",
+	"u pfu",
+	"rara",
+	"susu",
+	"shasha",
+	"i sva",
+	"tete",
+	"tsotsi",
+	"i tsvo",
+	"a vo",
+	"i vhu",
+	"i we",
+	"u yu",
+	"zizi",
+	"zhizha"
+	];
+	
+	
+	
+	
+	
+	
+	mixed=[
+"mhanya",
+"gara",
+"fara",
+"rara",
+"gonye",
+"imba",
+"imbwa",
+"mbambaira",
+"tsuro",
+"tsamba",
+"famba",
+"baba",
+"amai",
+"sekuru",
+"ambuya",
+"mukoma",
+"sisi",
+"tete",
+"nzvimbo",
+"nzungu",
+"nyimo",
+"chibage",
+"hari",
+"hembe",
+"shangu",
+"tsoka",
+"tora",
+"enda",
+"uya",
+"idya",
+"dyara",
+"seka",
+"chema",
+"muromo",
+"nzeve",
+"makumbo",
+"mhino",
+"dumbu",
+"musana",
+"bvudzi",
+"bvarura",
+"bvuma",
+"bveni",
+"ndebvu",
+"ganda",
+"jena",
+"jecha",
+"juru",
+"jana",
+"jiri",
+"joko",
+"zadza",
+"zuva",
+"zuda",
+"zunde",
+"zera",
+"ziva",
+"dombo",
+"damba",
+"demo",
+"dura"
+];
+
+
+sound=[ 
+"sh1.mp3",
+"sh2.mp3",
+"sh3.mp3",
+"sh4.mp3",
+"sh5.mp3",
+"sh6.mp3",
+"sh7.mp3",
+"sh8.mp3",
+"sh9.mp3",
+"sh10.mp3",
+"sh11.mp3",
+"sh12.mp3",
+"sh13.mp3",
+"sh14.mp3",
+"sh15.mp3",
+"sh16.mp3",
+"sh17.mp3",
+"sh18.mp3",
+"sh19.mp3",
+"sh20.mp3",
+"sh21.mp3",
+"sh22.mp3",
+"sh23.mp3",
+"sh24.mp3",
+"sh25.mp3",
+"sh26.mp3",
+"sh27.mp3",
+"sh28.mp3",
+"sh29.mp3",
+"sh29.mp3",
+"sh30.mp3",
+"sh31.mp3",
+"sh32.mp3",
+"sh33.mp3",
+"sh34.mp3",
+"sh35.mp3",
+"sh36.mp3",
+"sh37.mp3",
+"sh38.mp3"
+];
+
+
+
+var i=0;
+var j= 0;
+var c="c";
+var d;
+var e;
+function rava(){
+	c= document.getElementById("block").value;
+	d= blocks.indexOf(c);
+	
+	if(d> -1)
+    {
+		e= c+ "a "+c + "e "+c+"i "+ c+"o "+c+"u  </br><br><span id='green'>"; 
+		document.getElementById("rava").innerHTML=e+ mazwi[d]+ "</span";
+		document.getElementById("sound").src=  sound[d];
+		
+      }else{
+	
+	document.getElementById("rava").innerHTML=mixed[i];
+	//document.getElementById("sound").src=  sound[i];
+//document.getElementById("sound").style.display= " block";
+i++;
+	
+	if(i==55){
+	i=0;
+	}
+	
+	}
+	}
+	
+	function mutsara(){
+	document.getElementById("rava").innerHTML=  mutsara[j];
+	//document.getElementById("sound").src=  sounds[j];
+//document.getElementById("sound").style.display= " block";
+j++;
+if(j==15){
+	j=0;
+	}
+	}
+
+
+</script>
+
+</body>
+</html>
