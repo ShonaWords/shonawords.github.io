@@ -1,0 +1,394 @@
+<!DOCTYPE HTML5>
+<html>
+<header>
+	<title>Shona Words | English Reading</title>
+</header>
+<body>
+<style>
+
+body{
+font-size= 200%;
+text-align: center;
+}
+
+.topic{
+	
+	color: green;
+	}
+	#sound{
+		
+		}
+
+button{
+background: darkblue;
+color: white;
+border: solid skyblue;
+
+}
+
+#read{
+	font-size: 30px;
+	}
+
+.center{
+	text-align: center;
+	}
+
+</style>
+
+<div class="center">
+<h1 class="topic"> Reading</h1>
+<p id="read">English Language </p>
+
+<br>
+
+	<select id="level"> 
+		<option value="L1">Level 1</option>
+		<option value="L2">Level 2</option>
+		<option value="L3">Level 3</option>
+		<option value="L4">Level 4</option>
+		<option value="L5">Level 5</option>
+		<option value="L6">Level 6</option>
+		<option value="L7">Level 7</option>
+		<option value="L8">Level 8</option>
+		</select>
+	
+&nbsp;<button onclick="words()"> Word</button>
+&nbsp; <button onclick="sentences()"> Sentence</button>
+	<br>
+	<button id="sound"  onclick="playAuds()">Play Sound</button>
+</div>
+
+<br>
+<br>
+<br>
+
+<div id="spell">
+	<h1 class="topic" >Spellings</h1>
+	<h4 id="feedback"> Listen to the words and write the spellings in the box below</h4>
+	<input id="ans" type="text" onkeyUp="review()" size="10" value="" placeholder="spell">
+	<audio id="sound"  src="wd1.mp3" controls>
+<div>
+
+	
+<script>
+	
+	var i=0;
+	var state= 0;
+	var q=1;
+	var play=0;
+	
+	function playSound(){
+		var v= document.getElementById("spellBtn").innerHTML;
+		
+		if(v=="Next"){
+			q++;
+			if(q==75){
+				q=1;
+				
+				}
+			document.getElementById("spellBtn").innerHTML="Listen";
+			document.getElementById("ans").value="";
+			document.getElementById("feedback").innerHTML="";
+}
+			if(v=="Answer"){
+				document.getElementById("feedback").innerHTML= word[q-1]
+			}
+			
+			if(v=="Listen"){
+				
+				state=3;
+				playAuds();
+				
+				}
+		}
+	
+	
+	
+	function review(){
+		var ans = document.getElementById("ans").value;
+		var qstn=  word[q-1];
+	
+
+
+         if(qstn.indexOf(ans) >-1){
+				document.getElementById("feedback").innerHTML= "keep going";
+				document.getElementById("spellBtn").innerHTML= "Answer";
+				}
+				
+
+else{
+					document.getElementById("feedback").innerHTML = "wrong spelling";
+					document.getElementById("spellBtn").innerHTML = "Answer";
+					}
+					//the following should last in if statements
+		   if(ans==qstn){
+			document.getElementById("feedback").innerHTML= "correct!";
+			document.getElementById("spellBtn").innerHTML= "Next";
+      }
+				
+		}
+	
+	
+	
+	word=[
+	"cat",
+"baboon",
+"monkey",
+"thanks",
+	"donkey",
+	"elephant",
+	"mouse",
+	"pig",
+	"cow",
+	"bull",
+	"snake",
+	"aunt",
+	"mother",
+	"father",
+	"sister",
+	"teacher",
+	"school",
+	"water",
+	"eggs",
+	"apple",
+	"this",
+	"that",
+	"where",
+	"why",
+	"when",
+	"now",
+	"then",
+	"here",
+	"how",
+	"what",
+	"people",
+	"thing",
+	"it",
+	"five",
+	"three",
+	"eight",
+	"six",
+	"four",
+	"man",
+	"woman",
+	"boy",
+	"girl",
+	"lemon",
+	"orange",
+	"avocado",
+	"peaches",
+	"sugar",
+	"salt",
+	"banana",
+	"tree",
+	"leaf",
+	"car",
+	"bus",
+	"baby",
+	"boat",
+	"ear",
+	"eye",
+	"teeth",
+	"mouth",
+	"zoo",
+	"zip",
+	"zebra",
+	"yoyo",
+	"yellow",
+	"you",
+	"yesterday",
+	"x-ray",
+	"two",
+	"table",
+	"song",
+	"Saturday",
+	"Monday",
+	"Sunday",
+	"Thursday",
+	"Friday",
+	"Wednesday",
+	"Tuesday"
+	];
+	
+	wdSound =[
+	
+	"wd1.mp3",
+	"wd2.mp3",
+	"wd3.mp3",
+	"wd4.mp3",
+	"wd5.mp3",
+	"wd6.mp3",
+	"wd7.mp3",
+	"wd8.mp3",
+	"wd9.mp3",
+	"wd10.mp3",
+	"wd11.mp3",
+	"wd12.mp3",
+	"wd13.mp3",
+	"wd14.mp3",
+	"wd15.mp3",
+	"wd16.mp3",
+	"wd17.mp3",
+	"wd18.mp3",
+	"wd19.mp3",
+	"wd20.mp3",
+	"wd21.mp3",
+	"wd22.mp3",
+	"wd23.mp3",
+	"wd24.mp3",
+	"wd25.mp3",
+	"wd26.mp3",
+	"wd27.mp3",
+	"wd28.mp3",
+	"wd29.mp3",
+	"wd30.mp3",
+	"wd31.mp3",
+	"wd32.mp3",
+	"wd33.mp3",
+	"wd34.mp3",
+	"wd35.mp3",
+	"wd36.mp3",
+	"wd37.mp3",
+	"wd38.mp3",
+	"wd39.mp3",
+	"wd40.mp3",
+	"wd41.mp3",
+	"wd42.mp3",
+	"wd43.mp3",
+	"wd44.mp3",
+	"wd45.mp3",
+	"wd46.mp3",
+	"wd47.mp3",
+	"wd48.mp3",
+	"wd49.mp3",
+	"wd50.mp3",
+	"wd51.mp3",
+	"wd52.mp3",
+	"wd53.mp3",
+	"wd54.mp3" ,
+	"wd55.mp3",
+	"wd56.mp3",
+	"wd57.mp3",
+	"wd58.mp3",
+	"wd59.mp3",
+	"wd60.mp3",
+	"wd61.mp3",
+	"wd62.mp3",
+	"wd63.mp3",
+	"wd64.mp3",
+	"wd65.mp3",
+	"wd66.mp3",
+	"wd67.mp3",
+	"wd68.mp3",
+	"wd69.mp3",
+	"wd70.mp3",
+	"wd71.mp3",
+	"wd72.mp3",
+	"wd73.mp3",
+	"wd74.mp3",
+	"wd75.mp3",
+	"wd76.mp3",
+	
+];
+	
+	
+	
+	
+
+	
+	sentence=[
+	"What is your name?",
+	"How are you?",
+	"How old are you?",
+	"Where do you stay?" ,
+	"What is your favourite colour?",
+	"What is your favourite food?",
+	"Good morning , madam.",
+	"Good afternoon, sir.",
+	"Good day, everyone.",
+	"How are you feeling today?",
+	"What is the matter?",
+	"I have a temperature.",
+	"I am going to see a doctor.",
+	"I am feeling better.",
+	"I just took my medicine."
+	];
+	
+sounds=[
+"sn1.mp3",
+"sn2.mp3",
+"sn3.mp3",
+"sn4.mp3",
+"sn5.mp3",
+"sn6.mp3",
+"sn7.mp3",
+"sn8.mp3",
+"sn9.mp3",
+"sn10.mp3",
+"sn11.mp3",
+"sn12.mp3",
+"sn13.mp3",
+"sn14.mp3",
+"sn15.mp3"
+];
+
+
+
+
+
+
+
+
+
+
+var j= 0;
+
+function words(){
+	state=1;
+	document.getElementById("read").innerHTML=word[i];
+	document.getElementById("sound").src=  wdSound[i];
+
+    i++;
+	
+	if(i==75){
+	i=0;
+	}
+	}
+	
+	
+	function sentences(){
+		state=2;
+	document.getElementById("read").innerHTML=  sentence[j];
+	document.getElementById("sound").src=  sounds[j];
+
+j++;
+if(j==15){
+	j=0;
+	}
+	}
+	
+	function playAuds(){
+		
+		if(state==3){
+			showAndroidToast(q, 1);
+			}
+		if(state == 1){
+      showAndroidToast(i, 1);
+		}
+		
+		if(state==2){
+		showAndroidToast(j, 2);
+		}
+		}
+		
+		function showAndroidToast(play, state){
+			Android.showToast(play, state);
+			
+			//document.getElementById("feedback").innerHTML="testing";
+}
+		
+	</script>
+	
+	</body>
+</html>
