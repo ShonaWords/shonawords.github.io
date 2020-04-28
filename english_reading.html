@@ -67,7 +67,7 @@ border: solid skyblue;
 	<h1 class="topic" >Spellings</h1>
 	<h4 id="feedback"> Listen to the words and write the spellings in the box below</h4>
 	<input id="ans" type="text" onkeyUp="review()" size="10" value="" placeholder="spell">
-	<audio id="sound"  src="wd1.mp3" controls>
+	<button id="spellBtn" onclick="playSound()">Listen</button>
 <div>
 
 	
@@ -347,7 +347,7 @@ var j= 0;
 function words(){
 	state=1;
 	document.getElementById("read").innerHTML=word[i];
-	document.getElementById("sound").src=  wdSound[i];
+	//document.getElementById("sound").src=  wdSound[i];
 
     i++;
 	
@@ -360,7 +360,7 @@ function words(){
 	function sentences(){
 		state=2;
 	document.getElementById("read").innerHTML=  sentence[j];
-	document.getElementById("sound").src=  sounds[j];
+	//document.getElementById("sound").src=  sounds[j];
 
 j++;
 if(j==15){
