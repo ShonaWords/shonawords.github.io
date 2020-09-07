@@ -8,22 +8,26 @@ html, body{
 } 
 
 .cta {
-  background: orange; text-size: 15 em; padding: 5px;
+  background: orange; 
+ background-radius:12px;
+ font-size: 20px; 
+ padding: 5px;
 } 
 
 #main {
   background-color: black; background-image: url("bg.jpg");
   background-size: 100% 100%;
- color: white; 
+ color: white;
+ font-size: 30px;
  margin: 0; 
   padding: 10px; 
  width: 100%;
- height: 100%;
+ height: 90%;
 }
 
 #navbar{ margin-top: 20px;
     margin-bottom: 60px; 
-    //height: 100%; 
+    
 } 
 
 #gear { 
