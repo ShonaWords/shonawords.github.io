@@ -64,7 +64,9 @@ html, body{
   background: black;
   color: white;
   margin: 0;
+ padding: 40px;
   text-align: center;
+ width: 100%;
 }
 
 
